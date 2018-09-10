@@ -76,7 +76,8 @@
                 topValue += obj.offsetTop;
                 obj = obj.offsetParent;
             }
-            e = e || window.event;
+               //e = e || window.event;这里感谢RayZan-J的提供，使火狐浏览器可以点击
+			e=arguments.callee.caller.arguments[0] || window.event;
             var left = e.clientX + document.body.scrollLeft - document.body.clientLeft - 10;//"-110px";
             var top = e.clientY + document.body.scrollTop - document.body.clientTop - 10;//"-110px";
             var imgDivId = "img_" + index++;
